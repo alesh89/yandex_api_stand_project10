@@ -1,7 +1,6 @@
 # заголовки для HTTP-запроса, указывающие на то, что тело запроса будет в формате JSON
 headers = {
-    "Content-Type": "application/json",
-    "Authorization": "Bearer 5786ca10-921d-4998-b41a-a1f2264f46f3"
+    "Content-Type": "application/json"
 }
 
 # данные пользователя для создания новой записи пользователя в системе
