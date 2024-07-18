@@ -26,4 +26,6 @@
 |   10                                                        | Параметр не передан в запросе:<br>kit_body = {}  | Код ответа — 400   |
 |   11                                                        | Передан другой тип параметра (число):<br>kit_body = {"name": 123}  | Код ответа — 400   |
 
-_Тестовые значения для проверок №2 и №4_
+_Тестовые значения для проверок №2 и №4:_
+## _Допустимое количество символов (511):_
+kit_body = {    "name":"AbcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdAbcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabC"}
