@@ -13,12 +13,6 @@ import requests
 # Импорт данных запроса из модуля data, в котором определены заголовки и тело запроса
 import data
 
-def get_docs():
-    # Выполняем GET-запрос к URL, который складывается из базового URL-адреса сервиса
-    # и пути к документации, заданных в модуле конфигурации
-    # Функция возвращает объект ответа от сервера
-    return requests.get(configuration.URL_SERVICE + configuration.DOC_PATH)
-
 def post_new_user(body):
     # Выполнение POST-запроса с использованием URL из конфигурационного файла, тела запроса и заголовков
     # URL_SERVICE и CREATE_USER_PATH объединяются для формирования полного URL для запроса
@@ -36,12 +30,6 @@ def post_new_client_kit(body):
     return requests.post(configuration.URL_SERVICE + configuration.CREATE_KITS_PATH,
                          json=body,
                          headers=data.headers)
-
-def get_users_table():
-    # Составление полного URL пути к данным таблицы пользователей
-    # путем конкатенации базового URL сервиса и конечной точки таблицы пользователей
-    # Возвращает объект ответа от сервера
-    return requests.get(configuration.URL_SERVICE + configuration.USERS_TABLE_PATH)
 
 
 response_create_user = post_new_user(data.user_body)
