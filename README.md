@@ -50,6 +50,7 @@ def positive_assert(name):
 
     # Проверяется, что код ответа равен 201
     assert kit_response.status_code == 201
+    # Проверяется, что возвращаемое имя равно имени, передаваемое в запросе
     assert kit_response.json()["name"] == name
 ```
 ## Функция для негативной проверки
