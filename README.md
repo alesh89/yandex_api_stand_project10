@@ -31,17 +31,17 @@ _Тестовые значения для проверок №2 и №4:_<br><br
 kit_body = {    "name":"AbcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdAbcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabC"}<br><br>
 Количество символов больше допустимого (512):<br>
 kit_body = {  "name":"AbcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdAbcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcD"}
-## Правила запуска тестов
+# Правила запуска тестов
 
 В файле create_kit_name_kit_test.py созданы функции, являющиеся вспомогательными для выполнения тестов.<br><br>
-# Функция для замены содержимого тела запроса
+## Функция для замены содержимого тела запроса
 ```sh
 def get_kit_body(name):
     current_body = data.kit_body.copy()
     current_body["name"] = name
     return current_body
 ```
-# Функция для позитивной проверки
+## Функция для позитивной проверки
 ```sh
 def positive_assert(name):
     # В переменную kit_body сохраняется обновлённое тело запроса
@@ -52,7 +52,7 @@ def positive_assert(name):
     assert kit_response.status_code == 201
     assert kit_response.json()["name"] == name
 ```
-# Функция для негативной проверки
+## Функция для негативной проверки
 ```sh
 def negative_assert_symbol(name):
     # В переменную kit_body сохраняется обновлённое тело запроса
@@ -63,7 +63,7 @@ def negative_assert_symbol(name):
     assert kit_response.status_code == 400
 ```
 
-# Функция для негативной проверки (отсутствует имя)
+## Функция для негативной проверки (отсутствует имя)
 ```sh
 def negative_assert_no_name(kit_body):
     # В переменную response сохраняется результат запроса на создание набора:
