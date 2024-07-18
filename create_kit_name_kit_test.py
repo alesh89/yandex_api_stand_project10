@@ -27,17 +27,15 @@ def positive_assert(name):
 def negative_assert_symbol(name):
     # В переменную kit_body сохраняется обновлённое тело запроса
     kit_body = get_kit_body(name)
-    # В переменную kit_response сохраняется результат запроса на создание пользователя:
+    # В переменную kit_response сохраняется результат запроса на создание набора:
     kit_response = sender_stand_request.post_new_client_kit(kit_body)
-
     # Проверяется, что код ответа равен 400
     assert kit_response.status_code == 400
 
 # Функция для негативной проверки (отсутствует имя)
 def negative_assert_no_name(kit_body):
-    # В переменную user_response сохраняется результат запроса на создание пользователя:
+    # В переменную response сохраняется результат запроса на создание набора:
     response = sender_stand_request.post_new_client_kit(kit_body)
-
     # Проверяется, что код ответа равен 400
     assert response.status_code == 400
 
@@ -51,9 +49,7 @@ def test_create_kit_511_letter_in_name_get_success_response():
 
 #Тест 3. Количество символов меньше допустимого (0)
 def test_create_kit_empty_name_get_error_response():
-    # В переменную user_body сохраняется обновлённое тело запроса
     kit_body = get_kit_body("")
-    # Проверка полученного ответа
     negative_assert_no_name(kit_body)
 
 #Тест 4. Количество символов больше допустимого (512)
@@ -83,7 +79,7 @@ def test_create_kit_name_has_numbers_get_success_response():
 # Тест 10. Параметр name не передан в запросе
 def test_create_user_no_name_kit_get_error_response():
     kit_body = data.kit_body.copy()
-    # Удаление параметра firstName из запроса
+    # Удаление параметра name из запроса
     kit_body.pop("name")
     # Проверка полученного ответа
     negative_assert_no_name(kit_body)
