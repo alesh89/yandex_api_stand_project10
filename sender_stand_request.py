@@ -44,13 +44,13 @@ def get_users_table():
     return requests.get(configuration.URL_SERVICE + configuration.USERS_TABLE_PATH)
 
 
-#response_create_user = post_new_user(data.user_body)
-#print(response_create_user.status_code)
-#print(response_create_user.json())
+response_create_user = post_new_user(data.user_body)
+print(response_create_user.status_code)
+print(response_create_user.json())
 #Создан пользователь с токеном {'authToken': '5786ca10-921d-4998-b41a-a1f2264f46f3'}
-#response_create_kit = post_new_client_kit(data.kit_body)
-#print(response_create_kit.status_code)
-#print(response_create_kit.json())
+response_create_kit = post_new_client_kit(data.kit_body)
+print(response_create_kit.status_code)
+print(response_create_kit.json())
 #создан набор 'id': 8
 
 
