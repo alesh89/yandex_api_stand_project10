@@ -9,16 +9,12 @@ def get_kit_body(name):
     current_body["name"] = name
     return current_body
 
-def get_new_user_token():
-    current_auth = data.headers.copy()
-    return current_auth["Authorization"]
-
 # Функция для позитивной проверки
 def positive_assert(name):
     # В переменную kit_body сохраняется обновлённое тело запроса
     kit_body = get_kit_body(name)
-    kit_response = sender_stand_request.post_new_client_kit(kit_body)
-
+    auth_token = sender_stand_request.post_new_user(data.user_body)
+    kit_response = sender_stand_request.post_new_client_kit(kit_body, auth_token)
     # Проверяется, что код ответа равен 201
     assert kit_response.status_code == 201
     assert kit_response.json()["name"] == name
@@ -27,15 +23,17 @@ def positive_assert(name):
 def negative_assert_symbol(name):
     # В переменную kit_body сохраняется обновлённое тело запроса
     kit_body = get_kit_body(name)
+    auth_token = sender_stand_request.post_new_user(data.user_body)
     # В переменную kit_response сохраняется результат запроса на создание набора:
-    kit_response = sender_stand_request.post_new_client_kit(kit_body)
+    kit_response = sender_stand_request.post_new_client_kit(kit_body,auth_token)
     # Проверяется, что код ответа равен 400
     assert kit_response.status_code == 400
 
 # Функция для негативной проверки (отсутствует имя)
 def negative_assert_no_name(kit_body):
     # В переменную response сохраняется результат запроса на создание набора:
-    response = sender_stand_request.post_new_client_kit(kit_body)
+    auth_token = sender_stand_request.post_new_user(data.user_body)
+    response = sender_stand_request.post_new_client_kit(kit_body,auth_token)
     # Проверяется, что код ответа равен 400
     assert response.status_code == 400
 
@@ -87,5 +85,6 @@ def test_create_user_no_name_kit_get_error_response():
 #Тест 11. Передан другой тип параметра (число)
 def test_create_number_type_name_kit_get_error_response():
     kit_body = get_kit_body(12)
-    kit_response = sender_stand_request.post_new_client_kit(kit_body)
+    auth_token = sender_stand_request.post_new_user(data.user_body)
+    kit_response = sender_stand_request.post_new_client_kit(kit_body,auth_token)
     assert kit_response.status_code == 400
