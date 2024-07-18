@@ -34,4 +34,10 @@ kit_body = {  "name":"Abcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdab
 ## Правила запуска тестов
 
 В файле create_kit_name_kit_test.py созданы функции, являющиеся вспомогательными для выполнения тестов.
-AngularJS-powered HTML5 Markdown editor.
+Функция get_kit_body необходима для замены содержимого тела запроса
+```sh
+def get_kit_body(name):
+    current_body = data.kit_body.copy()
+    current_body["name"] = name
+    return current_body
+```
